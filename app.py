@@ -29,7 +29,7 @@ def list_files():
         for f in files:
             if not is_supported(f):
                 continue
-            sftp_link = f'sftp://{USER_NAME}@{HOST}:"{os.path.join(root, f)}"'
+            sftp_link = f'sftp://{USER_NAME}@{HOST}:{os.path.join(root, f)}'
             files_all.append((f, sftp_link))
     return render_template('base.html', result=files_all)
 

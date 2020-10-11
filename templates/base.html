@@ -19,6 +19,16 @@ tr:nth-child(even) {
 </style>
    <title>Films</title>
    <body>
+   <script>
+      function copyText(text) {
+  var dummy = document.createElement("textarea");
+    document.body.appendChild(dummy);
+    dummy.value = text;
+    dummy.select();
+    document.execCommand("copy");
+    document.body.removeChild(dummy);
+}
+   </script>
       <table>
          <tr>
             <th>Film name</th>
@@ -29,6 +39,7 @@ tr:nth-child(even) {
          <tr>
             <td>{{name}}</td>
             <td>{{fstp_text}}</td>
+            <td><button onclick="copyText('{{fstp_text}}')">Copy</button></td>
          </tr>
          {% endfor %}
       </table>
