@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+   <title>Films</title>
+   <body>
+      <table>
+         <tr>
+            <th>Film name</th>
+            <th>SFTP</th>
+            <th>Copy</th>
+         </tr>
+         {% for name, fstp_text in result %}
+         <tr>
+            <td>{{name}}</td>
+            <td>{{fstp_text}}</td>
+         </tr>
+         {% endfor %}
+      </table>
+
+   </body>
+</html>
