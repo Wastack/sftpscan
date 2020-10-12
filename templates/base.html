@@ -33,10 +33,12 @@ tr:nth-child(even) {
           var hiddenElement = document.createElement('a');
           var textToSave = '#EXTM3U\n#EXTINF:39,' + file_name + '\n' +
                      sftp;
-          hiddenElement.href = 'data:attachment/text,' + encodeURI(textToSave);
+          hiddenElement.href = 'data:text/plain;charset=utf-8,' + encodeURIComponent(textToSave);
           hiddenElement.target = '_blank';
           hiddenElement.download = file_name + '.m3u';
+          document.body.appendChild(hiddenElement);
           hiddenElement.click();
+          document.body.removeChild(hiddenElement);
       }
    </script>
       <table>
