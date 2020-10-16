@@ -48,9 +48,14 @@ tr:nth-child(even) {
             <th>Copy</th>
             <th>Play</th>
          </tr>
-         {% for name, fstp_text in result %}
+         {% for name, fstp_text, sample, sample_sftp_link in result %}
          <tr>
-            <td>{{name}}</td>
+            <td>
+               {{name}}
+               {% if sample is not none %}
+               (<a href="#" onclick="downloadM3U('{{sample}}','{{sample_sftp_link}}')">sample</a>)
+               {% endif %}
+            </td>
             <td>{{fstp_text}}</td>
             <td><button onclick="copyText('{{fstp_text}}')">Copy</button></td>
             <td><button onclick="downloadM3U('{{name}}','{{fstp_text}}')">Play</button></td>

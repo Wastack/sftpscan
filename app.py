@@ -26,7 +26,9 @@ def list_files():
         bundle.debug_print()
         for movie in bundle.files:
             sftp_link = f'sftp://{USER_NAME}@{HOST}:{movie.file_path}'
-            result.append((movie.file_name, sftp_link))
+            sftp_sample_link = f'sftp://{USER_NAME}@{HOST}:{bundle.sample.file_path}' if bundle.sample is not None else None
+            result.append((movie.file_name, sftp_link,
+                           bundle.sample, sftp_sample_link))
     return render_template('base.html', result=result)
 
 
